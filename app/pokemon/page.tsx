@@ -66,12 +66,13 @@ export default async function Result({searchParams}) {
   console.log(data);
   if (!data.pokemon) {
 
-    return (<h1>Not Found</h1>)
+    return (<h1>Not Found</h1>);
   }
-  const fastAttacks = data.pokemon.attacks.fast.map(({name, type, damage}) => <li>{name} - {type} - {damage}</li>);
+  const fastAttacks = data.pokemon.attacks.fast.map(({name, type, damage}) => <li
+    key={name}>{name} - {type} - {damage}</li>);
   const specialAttacks = data.pokemon.attacks.special.map(({name, type, damage}) =>
-    <li>{name} - {type} - {damage}</li>);
-  const evolutions = data.pokemon.evolutions.map(({id, number, name}) => <li>{id} - {number} - {name}</li>);
+    <li key={name}>{name} - {type} - {damage}</li>);
+  const evolutions = data.pokemon.evolutions.map(({id, number, name}) => <li key={name}>{id} - {number} - {name}</li>);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
