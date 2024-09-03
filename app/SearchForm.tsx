@@ -1,14 +1,10 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useSearchParams } from 'next/navigation'
 
 export default function SearchForm() {
 
   const router = useRouter();
-  const searchParams = useSearchParams()
-  // const search = searchParams.get('search');
-  // const selectedName = searchParams.get("name");
 
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -16,10 +12,6 @@ export default function SearchForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
-    const pokemon = {
-      name: name
-    }
 
     router.refresh();
     router.push('/pokemon?name=' + name);
