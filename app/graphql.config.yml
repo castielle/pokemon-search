@@ -1,0 +1,5 @@
+schema: local.graphql
+extensions:
+  endpoints:
+    One:
+      url: https://graphql-pokemon2.vercel.app/
